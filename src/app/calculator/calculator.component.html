@@ -1,15 +1,9 @@
 <div class="row">
-    <div class="col-sm-8">
-        <form (ngSubmit)="onSubmit(form)" #form="ngForm">
-            <div class="form-group">
-                <label for="amount">Montant à répartir :</label>
-                <input id="amount" class="form-control" type="number" placeholder="0" name="amount" ngModel required />
-            </div>
-            <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Valider</button>
-        </form>
+    <div class="col-6">
+        <app-calculation-form (notifyFormSubmission)="onSubmit($event)"></app-calculation-form>
     </div>
+</div>
 
-    <div *ngIf="isFormSubmitted">
-        <calculation-results [amount]="amount"></calculation-results>
-    </div>
+<div *ngIf="amount">
+    <app-calculation-results [amount]="amount"></app-calculation-results>
 </div>

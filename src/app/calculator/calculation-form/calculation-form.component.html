@@ -1,0 +1,11 @@
+<form [formGroup]="calculationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="amount" class="form-label">Montant à répartir :</label>
+        <div>
+            <span class="text-danger" *ngIf="calculationForm.get('amount').errors">Le montant renseigné est
+                invalide.</span>
+        </div>
+        <input id="amount" class="form-control" type="number" autofocus placeholder="1000 €" formControlName="amount" />
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="calculationForm.invalid">Valider</button>
+</form>

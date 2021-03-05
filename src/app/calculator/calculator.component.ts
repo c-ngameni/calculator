@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms'
-import { CalculatorService } from '../services/calculator.service';
 
 @Component({
   selector: 'app-calculator',
@@ -9,18 +7,15 @@ import { CalculatorService } from '../services/calculator.service';
 })
 export class CalculatorComponent implements OnInit {
 
-  amount = 0;
-  isFormSubmitted = false;
+  amount: number;
 
-  constructor(private calculatorService: CalculatorService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSubmit(form: NgForm): void {
-    this.isFormSubmitted = true;
-    this.amount = +form.value['amount'];
-    console.log('Montant = ' + this.amount);
+  onSubmit(amount: number): void {
+    this.amount = amount;
   }
 
 }

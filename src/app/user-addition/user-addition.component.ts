@@ -31,9 +31,10 @@ export class UserAdditionComponent implements OnInit {
 
   onSubmit() {
     const formValue = this.userForm.value;
-    const user = new User( formValue['firstName'], formValue['lastName'], formValue['email']);
-    this.userService.addUser(user);
-    this.router.navigate(['/utilisateurs']);
+    const user = new User(formValue['firstName'], formValue['lastName'], formValue['email']);
+    this.userService.saveUser(user)
+      .subscribe(() => this.router.navigate(['/utilisateurs']),
+        (error) => console.error('Une erreur s\'est produite:', error));
   }
 
 }

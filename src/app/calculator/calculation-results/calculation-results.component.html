@@ -1,1 +1,12 @@
-<p>calculation-results works!</p>
+<div class="row">
+    <h3>Résultats du calcul</h3>
+    <h4>Somme à déposer sur :</h4>
+    <ul>
+        <li>Le compte d'autonomie financière : {{ amountCAF | currency: currencyCode }}</li>
+        <li>Le compte d'amusement : {{ amountCA | currency: currencyCode }}</li>
+        <li>Le compte d'économie à long terme : {{ amountCELT | currency: currencyCode }}</li>
+        <li>Le compte d'instruction : {{ amountCI | currency: currencyCode }}</li>
+        <li>Le compte de nécessité : {{ amountCN | currency: currencyCode }}</li>
+        <li>Le compte de dons : {{ amountCD | currency: currencyCode }}</li>
+    </ul>
+</div>

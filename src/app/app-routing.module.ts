@@ -5,8 +5,10 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserComponent } from './user/user.component';
 import { UserAdditionComponent } from './user-addition/user-addition.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 const routes: Routes = [
+  { path: 'connexion', component: SignInComponent },
   { path: 'accueil', component: HomeComponent },
   { path: 'calculatrice', component: CalculatorComponent },
   { path: 'utilisateurs', component: UserComponent },

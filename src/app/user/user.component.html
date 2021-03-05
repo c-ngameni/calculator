@@ -1,9 +1,14 @@
-<ul class="list-group">
+<p *ngIf="!users">Il n'y a aucun résultat à afficher.</p>
+<ul class="list-group" *ngIf="users">
     <li class="list-group-item" *ngFor="let user of users">
         <h3>{{ user.firstName }} {{ user.lastName }}</h3>
         <p>{{ user.email }}</p>
     </li>
-
-    <a routerLink="/nouvel-utilisateur">Ajouter un nouvel utilisateur</a>
-    <button class="btn btn-primary" (click)="onSaveUsers()"> Enregister les utilisateurs</button>
 </ul>
+
+<div class="btn-group" role="group" aria-label="Button group">
+    <button class="btn btn-outline-primary" type="button" routerLink="/nouvel-utilisateur">Ajouter un nouvel
+        utilisateur</button>
+    <button class="btn btn-primary" type="button" (click)="onSaveUsers()"> Enregister les utilisateurs</button>
+    <button class="btn btn-danger" type="button" (click)="onDeleteUsers()">Supprimer les utilisateurs</button>
+</div>

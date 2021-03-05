@@ -16,12 +16,11 @@ export class UserComponent implements OnInit, OnDestroy {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
-    this.userSubscription = this.userService.userSubject.subscribe(
-      (users: User[]) => {
-        this.users = users;
-      }
-    );
-    this.userService.getUsers();
+    this.userSubscription = this.userService.getUsers()
+      .subscribe(
+        (response: User[]) => this.users = response,
+        (error) => handleError(error)
+      );
   }
 
   ngOnDestroy() {
@@ -29,7 +28,23 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   onSaveUsers() {
-    this.userService.saveUsers();
+    this.userService.saveUsers()
+      .subscribe(
+        () => console.log('Enregistrement des utilisateurs terminé.'),
+        (error) => handleError(error)
+      );
   }
 
+  onDeleteUsers() {
+    this.userService.deleteUsers()
+      .subscribe(
+        (response: User[]) => this.users = response,
+        (error) => handleError(error)
+      );
+  }
+
+}
+
+function handleError(error: any) {
+  console.error('Une erreur s\'est produite:', error);
 }

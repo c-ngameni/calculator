@@ -1,5 +1,7 @@
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { registerLocaleData } from '@angular/common';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import localeFr from '@angular/common/locales/fr';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +10,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CalculationFormComponent } from './calculator/calculation-form/calculation-form.component';
 import { CalculationResultsComponent } from './calculator/calculation-results/calculation-results.component';
 
 import { CalculatorService } from './services/calculator.service';
@@ -15,6 +18,10 @@ import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { UserComponent } from './user/user.component';
 import { UserAdditionComponent } from './user-addition/user-addition.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { XhrInterceptor } from './services/xhr-interceptor';
+
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -22,9 +29,11 @@ import { UserAdditionComponent } from './user-addition/user-addition.component';
     HomeComponent,
     CalculatorComponent,
     PageNotFoundComponent,
+    CalculationFormComponent,
     CalculationResultsComponent,
     UserComponent,
-    UserAdditionComponent
+    UserAdditionComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +42,10 @@ import { UserAdditionComponent } from './user-addition/user-addition.component';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [CalculatorService, AuthenticationService, UserService],
+  providers: [CalculatorService, AuthenticationService, UserService,
+    { provide: HTTP_INTERCEPTORS, useClass: XhrInterceptor, multi: true },
+    { provide: LOCALE_ID, useValue: 'fr' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
