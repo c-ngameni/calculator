@@ -22,6 +22,10 @@ export class AppComponent implements OnInit {
     this.authenticationService.emitAuthenticationStatus();
   }
 
+  onSignUp() {
+    this.router.navigateByUrl('/enregistrement');
+  }
+
   onLogIn() {
     this.isAuthenticated = this.authenticationService.isAuthenticated;
     this.logIn();

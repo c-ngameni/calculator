@@ -20,6 +20,7 @@ import { UserComponent } from './user/user.component';
 import { UserAdditionComponent } from './user-addition/user-addition.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { XhrInterceptor } from './services/xhr-interceptor';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 registerLocaleData(localeFr);
 
@@ -33,7 +34,8 @@ registerLocaleData(localeFr);
     CalculationResultsComponent,
     UserComponent,
     UserAdditionComponent,
-    SignInComponent
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
