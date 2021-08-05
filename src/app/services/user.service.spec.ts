@@ -21,8 +21,8 @@ describe('UserService', () => {
         it('should retrieve users', () => {
             service.getUsers().subscribe();
 
-            const request = httpTestingController.expectOne('https://calculator-643a5-default-rtdb.europe-west1.firebasedatabase.app/users.json');
-            request.flush(new User('John', 'Doe', ''));
+            const request = httpTestingController.expectOne('/rest/users');
+            request.flush(new User('John', 'DOE', ''));
             httpTestingController.verify();
         });
     });
