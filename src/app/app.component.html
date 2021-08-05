@@ -8,16 +8,19 @@
           <li class="nav-item" routerLinkActive="active">
             <a class="nav-link" aria-current="page" routerLink="/accueil">Accueil</a>
           </li>
-          <li class="nav-item" routerLinkActive="active">
+          <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated">
             <a class="nav-link" routerLink="/calculatrice">Calculatrice</a>
           </li>
-          <li class="nav-item" routerLinkActive="active">
+          <li class="nav-item" routerLinkActive="active" *ngIf="isAuthenticated">
             <a class="nav-link" routerLink="/utilisateurs">Utilisateurs</a>
           </li>
-          <button class="btn btn-outline-primary" *ngIf="!isAuthenticated" (click)="onSignUp()">Créer un compte</button>
-          <button class="btn btn-success" *ngIf="!isAuthenticated" (click)="onLogIn()">Se connecter</button>
-          <button class="btn btn-danger" *ngIf="isAuthenticated" (click)="onLogOut()">Se déconnecter</button>
         </ul>
+
+        <div class="btn-group" role="group" aria-label="Button group">
+          <button type="button" class="btn btn-outline-primary" *ngIf="!isAuthenticated" (click)="onSignUp()">Créer un compte</button>
+          <button type="button" class="btn btn-success" *ngIf="!isAuthenticated" (click)="onLogIn()">Se connecter</button>
+          <button type="button" class="btn btn-danger" *ngIf="isAuthenticated" (click)="onLogOut()">Se déconnecter</button>
+        </div>
 
       </div>
 
