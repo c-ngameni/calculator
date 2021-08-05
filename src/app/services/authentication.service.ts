@@ -17,7 +17,7 @@ export class AuthenticationService {
     }
 
     signUpUser(user: User) {
-        return this.httpClient.post('/users/registration', user);
+        return this.httpClient.post('/rest/users/registration', user);
     }
 
     logIn(credentials?: any) {
@@ -28,14 +28,13 @@ export class AuthenticationService {
                 'Authorization': 'Basic ' + btoa(credentials.username + ':' + credentials.password)
             });
         }
-        this.httpClient.get('/users/login', { headers: headers })
+        this.httpClient.get('/rest/users/login', { headers: headers })
             .subscribe(
                 response => {
-                    if (response && response['name']) {
+                    if (response && response['email']) {
                         this.isAuthenticated = true;
                     } else {
-                        // this.isAuthenticated = false;
-                        this.isAuthenticated = true;
+                        this.isAuthenticated = false;
                     }
                     this.emitAuthenticationStatus();
                 },

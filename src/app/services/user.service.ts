@@ -6,7 +6,7 @@ import { User } from '../models/user.model'
 @Injectable()
 export class UserService {
 
-    private USERS_URL = 'https://calculator-643a5-default-rtdb.europe-west1.firebasedatabase.app/users.json';
+    private USERS_URL = '/rest/users';
 
     private users: User[] = [];
 

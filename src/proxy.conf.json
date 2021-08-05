@@ -1,6 +1,6 @@
 {
-    "/users/*": {
-        "target": "http://localhost:8081/",
+    "/rest/*": {
+        "target": "http://calculator-env.eba-3rmnzssd.eu-west-3.elasticbeanstalk.com/",
         "secure": false,
         "logLevel": "debug"
     }
