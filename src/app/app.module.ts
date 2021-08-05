@@ -17,7 +17,6 @@ import { CalculatorService } from './services/calculator.service';
 import { AuthenticationService } from './services/authentication.service';
 import { UserService } from './services/user.service';
 import { UserComponent } from './user/user.component';
-import { UserAdditionComponent } from './user-addition/user-addition.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { XhrInterceptor } from './services/xhr-interceptor';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -33,7 +32,6 @@ registerLocaleData(localeFr);
     CalculationFormComponent,
     CalculationResultsComponent,
     UserComponent,
-    UserAdditionComponent,
     SignInComponent,
     SignUpComponent
   ],
